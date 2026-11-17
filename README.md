@@ -2,7 +2,6 @@
 
 A real-time safety, security alert and incident-reporting app for Nigerian road users. People report what they see on the road, the community confirms it, and everyone can check an area, plan a safer route, alert people they trust and find emergency numbers. Moderators review reports from an admin dashboard.
 
-Built with [Arc Studio](https://studio.arc.io)
 
 ## What you can do
 
