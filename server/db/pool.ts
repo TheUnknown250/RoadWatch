@@ -9,10 +9,17 @@ export function sslOption(mode: SslMode): pg.PoolConfig['ssl'] {
   return mode === 'verify' ? true : undefined
 }
 
-export function createPool(connectionString: string, ssl: SslMode = 'off'): Db {
-  return new pg.Pool({ connectionString, max: 10, ssl: sslOption(ssl) })
+export function createPool(
+  connectionString: string,
+  ssl: SslMode = 'off',
+  max = 10,
+): Db {
+  return new pg.Pool({
+    connectionString,
+    max,
+    ssl: sslOption(ssl),
+  })
 }
-
 /** Run `fn` inside a transaction; rolls back on any thrown error. */
 export async function withTx<T>(db: Db, fn: (client: pg.PoolClient) => Promise<T>): Promise<T> {
   const client = await db.connect()
