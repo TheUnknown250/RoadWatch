@@ -1,0 +1,16 @@
+rules_version = '2';
+
+// Firestore only carries a small, disposable "something changed" feed.
+// Only the API server (Firebase Admin, which bypasses these rules) writes to it.
+// Clients may read it to refresh their view; the real data always comes from the API.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /incident_events/{eventId} {
+      allow read: if true;
+      allow write: if false;
+    }
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

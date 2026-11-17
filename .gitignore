@@ -1,0 +1,19 @@
+node_modules
+dist
+.env
+.env.*
+*.pem
+*service-account*.json
+.circle
+recovery_file*
+contracts/out
+contracts/cache
+traces.jsonl
+console.jsonl
+# Generated test and deployment artifacts
+playwright-report/
+test-results/
+coverage/
+.vercel/
+# Example-only agent placeholder
+.agents/skills/example/
